@@ -1,0 +1,181 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{courier}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    pdftitle={Git Command Cheat Sheet},
+    pdfpagemode=FullScreen,
+}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Git Cheat Sheet}
+\lhead{Shazz's Reference}
+\rfoot{\thepage}
+
+\lstset{
+    basicstyle=\footnotesize\ttfamily,
+    breaklines=true,
+    backgroundcolor=\color{gray!10},
+    frame=single,
+    tabsize=2
+}
+
+\begin{document}
+
+\section*{Git Cheat Sheet}
+
+\section{Git \& Version Control Essentials}
+\textbf{Why VCS?} \\
+Track file changes over time, collaborate seamlessly, and maintain a complete history of your project.\\[5pt]
+\textbf{Types of VCS:}
+\begin{itemize}
+  \item \textbf{Centralized:} (e.g., SVN, TFS) – Single point of failure, requires constant server access.
+  \item \textbf{Distributed:} (e.g., Git, Mercurial) – Every user holds a full copy; enables offline work.
+\end{itemize}
+
+\textbf{Tooling Tips:} \\
+\begin{itemize}
+  \item \textbf{CLI:} Offers full control and conceptual clarity.
+  \item \textbf{GUIs \& IDE Extensions:} GitKraken, Sourcetree, VS Code (GitLens) – handy for visual diffing but may hide details.
+\end{itemize}
+
+\section{Setup \& Configuration}
+\textbf{Installing Git:}
+\begin{lstlisting}
+# Download from: https://git-scm.com/downloads
+git --version  % Verify installation
+\end{lstlisting}
+
+\textbf{Initial Configuration:}
+\begin{lstlisting}
+git config --global user.name "your_name"
+git config --global user.email "your_email@example.com"
+git config --global core.editor "code --wait"  % Set VS Code as default editor
+git config --global -e                           % Edit global config
+\end{lstlisting}
+
+\textbf{Managing Line Endings:}
+\begin{lstlisting}
+# Windows users:
+git config --global core.autocrlf true
+# Mac/Linux users (if needed):
+git config --global core.autocrlf input
+\end{lstlisting}
+
+\textbf{Documentation:} \url{https://git-scm.com/docs}
+
+\section{Basic Workflow \& Snapshots}
+\textbf{Initializing \& Creating Snapshots:}
+\begin{lstlisting}
+git init                       % Start a new repository
+git add <file> or git add .    % Stage changes
+git commit -m "message"        % Commit staged changes
+\end{lstlisting}
+
+\textbf{Common Commands:}
+\begin{lstlisting}
+git status                     % Check working/staging status
+git diff                       % View unstaged changes
+git diff --staged              % View staged changes
+git log --oneline              % Compact commit history
+\end{lstlisting}
+
+\section{Reviewing Changes \& History}
+\textbf{History & Inspection:}
+\begin{lstlisting}
+git log                      % Full commit history
+git log --oneline --graph    % Visual commit tree
+git show <commit_hash>       % Details of a specific commit
+git blame <file>             % Identify who last changed each line
+\end{lstlisting}
+
+\textbf{Search Options:}
+\begin{lstlisting}
+git log --grep="term"          % Search commit messages
+git log -S"code"               % Find commits modifying specific code
+\end{lstlisting}
+
+\section{Branching, Merging \& Advanced Operations}
+\subsection{Branching and Stashing}
+\begin{lstlisting}
+git branch <branch_name>       % Create branch
+git switch -c <branch_name>    % Create and switch to branch
+git branch -m old new          % Rename branch
+git branch -d <branch_name>    % Delete branch
+
+git stash push -m "message"    % Stash changes
+git stash list                 % List stashes
+git stash pop                  % Apply stash
+\end{lstlisting}
+
+\subsection{Merging \& Rebasing}
+\begin{lstlisting}
+git merge <branch>             % Merge branch into current
+git merge --squash <branch>    % Squash merge (combine commits)
+git merge --abort              % Abort merge in progress
+
+git rebase master              % Rebase current branch onto master
+git rebase --continue          % Continue after conflict resolution
+git rebase --abort             % Cancel rebase
+\end{lstlisting}
+
+\subsection{Advanced Commands}
+\begin{lstlisting}
+git commit --amend           % Amend last commit
+git cherry-pick <commit_hash>  % Apply specific commit from another branch
+git bisect start             % Begin binary search for faulty commit
+git bisect good/bad <commit>   % Mark commits during bisect
+git bisect reset             % End bisect mode
+git tag v1.0                 % Tag the current commit
+\end{lstlisting}
+
+\section{Collaboration \& Remotes}
+\textbf{Cloning \& Remote Setup:}
+\begin{lstlisting}
+git clone <url>               % Clone a remote repository
+git remote -v                 % List remotes
+git remote add upstream <url> % Add new remote (e.g., original repo)
+\end{lstlisting}
+
+\textbf{Synchronizing Changes:}
+\begin{lstlisting}
+git fetch origin              % Fetch remote updates without merging
+git pull                      % Fetch and merge remote changes
+git push                      % Push local commits to remote
+git push origin <branch>      % Push specific branch
+git push --set-upstream origin <branch>  % Set upstream for new branch
+\end{lstlisting}
+
+\textbf{Tags \& Cleanup:}
+\begin{lstlisting}
+git push origin <tag>        % Push a tag to remote
+git push origin --delete <branch>  % Delete remote branch
+git remote prune origin      % Clean up stale remote branches
+\end{lstlisting}
+
+\section{Best Practices \& Tips}
+\begin{itemize}
+  \item \textbf{Commit Often:} Keep commits self-contained and logical.
+  \item \textbf{Meaningful Messages:} Use clear, concise commit messages.
+  \item \textbf{Review Before Merging:} Use diff tools (e.g., VS Code, KDiff3) to inspect changes.
+  \item \textbf{Backup with Branches:} Use feature branches and stashing to avoid losing work.
+  \item \textbf{CLI First:} Master the command line before relying solely on GUIs.
+\end{itemize}
+
+\textbf{Issue Tracking:} \\
+Use GitHub/GitLab Issues and Milestones for bug tracking and feature requests.
+
+\end{document}

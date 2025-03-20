@@ -1,6 +1,6 @@
 # Git and Version Control
 
-Welcome to the ultimate Git and Version Control resource! This repository is a comprehensive guide designed to help you master Git—whether you’re just getting started or looking to refine your advanced workflows. Here, you'll find detailed notes, a handy cheat sheet, and even a visual mind map to tie it all together.
+Welcome to the ultimate Git and Version Control resource! This repository is a comprehensive guide designed to help you master Git—whether you’re just getting started or looking to refine your advanced workflows. You'll find detailed notes, a handy cheat sheet, and even a visual mind map to tie it all together here.
 
 ## What's Inside
 
@@ -24,16 +24,18 @@ This repository is organized into five key sections, each with a `notes.md` file
 ## Cheat Sheet
 
 For a quick command reference, check out our **Git Cheat Sheet**:
-- **[Cheatsheet PDF](./cheatsheet.pdf)**  
+- **[Cheatsheet PDF](./git_and_version_control_cheatsheet.pdf)**  
   A concise, printable reference to keep by your side.
-- **[Cheatsheet LaTeX Code](./cheatsheet.tex)**  
+- **[Cheatsheet LaTeX Code](./git_and_version_control_cheatsheet.tex)**  
   The source code for those who love to customize.
 
 ## Mind Map
 
 Visual learners rejoice! Our **XMind Mind Map** offers a graphical overview of Git workflows and best practices:
-- **[XMind Mind Map File](./git-mindmap.xmind)**  
+- **[XMind Mind Map File](./mind_map.xmind)**  
   Open it with XMind to see how all the concepts interconnect.
+- **[XMind Mind structured notes](./mind_map_pdf.pdf)**  
+  Open it with any pdf viewer.
 
 ## How to Use This Repository
 
@@ -44,7 +46,7 @@ Visual learners rejoice! Our **XMind Mind Map** offers a graphical overview of G
 3. **Keep the Cheat Sheet Handy:**  
    Use the cheat sheet for quick command lookups during your daily work.
 4. **Visualize the Workflow:**  
-   Open the mind map to get a big-picture view of Git processes and workflows.
+   Open the mind map to see the big picture of Git processes and workflows.
 5. **Stay Updated:**  
    Bookmark this repository and check back for updates as Git best practices evolve.
 

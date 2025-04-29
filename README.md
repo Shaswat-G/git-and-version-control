@@ -1,3 +1,4 @@
+[![Code of Conduct](https://img.shields.io/badge/Code%20of%20Conduct-Active-brightgreen.svg)](.github/CODE_OF_CONDUCT.md) [![Contributing](https://img.shields.io/badge/Contributions-Welcome-blue.svg)](.github/CONTRIBUTING.md)
 # Git and Version Control
 
 Welcome to the ultimate Git and Version Control resource! This repository is a comprehensive guide designed to help you master Git—whether you’re just getting started or looking to refine your advanced workflows. You'll find detailed notes, a handy cheat sheet, and even a visual mind map to tie it all together here.
